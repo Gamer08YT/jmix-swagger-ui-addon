@@ -1,5 +1,9 @@
 # JMIX Swagger-UI Component
 
+The Swagger UI add-on allows internal documentation to be displayed with the user-friendly Swagger environment.
+
+The addon provides an API Docs page in which the Swagger UI is integrated, but the component can also be integrated via XML or as a Java object.
+
 ![img.png](img.png)
 
 Shield: [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
