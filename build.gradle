@@ -8,7 +8,7 @@ buildscript {
 }
 
 group = 'de.bytestore'
-version = '1.0.0'
+version = '1.0.5'
 
 subprojects {
     apply plugin: 'java-library'
@@ -51,12 +51,12 @@ subprojects {
     publishing {
         repositories {
             maven {
-                url = 'http://github.com/Gamer08YT/jmix-swagger-ui-addon/releases/'
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/" + System.getenv("GITHUB_REPOSITORY"))
                 credentials {
-                    username rootProject.hasProperty('uploadUser') ? rootProject['uploadUser'] : 'admin'
-                    password rootProject.hasProperty('uploadPassword') ? rootProject['uploadPassword'] : 'admin'
+                    username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USERNAME")
+                    password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
                 }
-                allowInsecureProtocol = true
             }
         }
         publications {
