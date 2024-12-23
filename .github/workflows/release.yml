@@ -13,6 +13,6 @@ jobs:
       - name: Publish package
         run: gradle -Pversion=${{ github.event.release.tag_name }} build publish
         env:
-          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REPOSITORY: https://github.com/Gamer08YT/jmix-swagger-ui-addon/releases/
           GITHUB_USERNAME: ${{ github.repository_owner }}
           GITHUB_TOKEN: ${{ github.token }}
