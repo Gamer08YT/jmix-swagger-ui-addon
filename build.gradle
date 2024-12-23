@@ -27,6 +27,11 @@ subprojects {
         projectId = 'swagger'
     }
 
+    test {
+        useJUnitPlatform()
+    }
+
+
     group = this.group
     version = this.version
 

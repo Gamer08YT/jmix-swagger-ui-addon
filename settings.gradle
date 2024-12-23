@@ -1,0 +1,8 @@
+rootProject.name = 'swagger-ui-addon'
+
+include 'swagger-ui'
+include 'swagger-ui-starter'
+
+rootProject.children.each { p1 ->
+    p1.buildFileName = "${p1.name}.gradle"
+}
