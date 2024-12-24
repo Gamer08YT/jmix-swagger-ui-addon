@@ -81,12 +81,12 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
             },
             tryItOutEnabled: {
                 type: Boolean,
-                value: true,
+                value: false,
                 observer: '_onGenericUpdate'
             },
             requestSnippetsEnabled: {
                 type: Boolean,
-                value: true,
+                value: false,
                 observer: '_onGenericUpdate'
             },
             urls: {
@@ -173,14 +173,23 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
             }
 
             if (this.urls.length > 0) {
-                config.urls = this.urls;
+                config.urls = this.urls.map(url => ({
+                    url: url,
+                    name: url
+                }));
 
                 console.log("Using Swagger URLs Mode.")
             } else {
-                config.urls = [this.url];
+                // config.url = this.url;
+                config.urls = [{
+                    name: this.url,
+                    url: this.url
+                }];
 
                 console.log("Using Swagger URL Mode.")
             }
+
+            console.log(config);
 
             this._swagger = SwaggerUI(config);
 
