@@ -11,8 +11,21 @@ XML or as a Java object.
     ```groovy
     implementation 'de.bytestore:swagger-ui'
     implementation 'de.bytestore:swagger-ui-starter' 
-   ```
+    ```
 2. Add `xmlns:app="http://byte-store.de/schema/app-ui-components"` to your View Descriptor.
+
+## Springdoc:
+
+To generate API Docs for entire Projekt you can use Springdoc to generate Specs File.
+
+1. Add following Configuration to your `application.yml`:
+   ```properties
+   springdoc.api-docs.path=/rest/docs/internal
+   ```
+2. Add Spring Doc Dependency to your `build.gradle`.
+   ```groovy
+   implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+   ```
 
 ![img.png](img.png)
 

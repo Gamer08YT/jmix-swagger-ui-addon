@@ -3,6 +3,6 @@
       xmlns:app="http://byte-store.de/schema/app-ui-components"
       title="msg://apiDocs.title">
     <layout>
-        <app:swagger-ui id="swagger"/>
+        <app:swagger-ui url="/rest/docs/internal" id="swagger"/>
     </layout>
 </view>
