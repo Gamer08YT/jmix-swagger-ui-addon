@@ -26,11 +26,13 @@ To generate API Docs for entire Projekt you can use Springdoc to generate Specs 
    ```groovy
    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
    ```
-   
+
 ## Implement basic Swagger UI
 
 Via Java Component:
+
 ```java
+
 @Subscribe
 public void onInit(final InitEvent event) {
     SwaggerUI swaggerIO = new SwaggerIO();
@@ -40,7 +42,9 @@ public void onInit(final InitEvent event) {
     getContent().add(swaggerIO);
 }
 ```
+
 Via View Descriptor XML:
+
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <view xmlns="http://jmix.io/schema/flowui/view"
@@ -51,6 +55,8 @@ Via View Descriptor XML:
     </layout>
 </view>
 ```
+
+## Screenshots
 
 ![img.png](img.png)
 
