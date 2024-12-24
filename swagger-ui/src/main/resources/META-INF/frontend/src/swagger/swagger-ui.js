@@ -59,6 +59,12 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
                 value: '/rest/docs/internal',
                 observer: '_onUrlChange'
             },
+            urls: {
+                type: String,
+                notify: true,
+                value: [],
+                observer: '_onUrlsChange'
+            },
             /** @private */
             _domElement: {
                 type: Object
@@ -82,6 +88,14 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
         //this.init();
     }
 
+    /**
+     * Handles changes to the URLs of the OpenAPI Documentation.
+     * This method is triggered when the URLs change and performs
+     * the necessary actions to refresh or update the documentation.
+     *
+     * @param {Object} valueIO - The input-output object that provides the updated URLs or related data.
+     * @return {void} - This method does not return a value.
+     */
     _onUrlsChange(valueIO) {
         console.log("Refreshing URLs of OpenAPI Documentation.");
     }

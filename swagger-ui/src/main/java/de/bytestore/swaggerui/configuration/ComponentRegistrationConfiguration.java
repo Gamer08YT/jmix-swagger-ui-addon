@@ -7,6 +7,10 @@ import io.jmix.flowui.sys.registration.ComponentRegistrationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * A Spring configuration class for registering components. This class is responsible for
+ * creating and configuring beans associated with UI components.
+ */
 @Configuration
 public class ComponentRegistrationConfiguration {
     /**

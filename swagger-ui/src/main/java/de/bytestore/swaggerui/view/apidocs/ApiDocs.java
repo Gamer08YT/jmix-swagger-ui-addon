@@ -14,9 +14,14 @@ public class ApiDocs extends StandardView {
     private SwaggerUI swagger;
 
 
+    /**
+     * Initializes the Swagger UI component by setting a list of URLs for its API documentation.
+     *
+     * @param event the initialization event that triggers this method
+     */
     @Subscribe
     public void onInit(final InitEvent event) {
-        swagger.setUrls("/rest/docs/interna", "/rest/docs/openapi.json", "/rest/docs/openapiDetailed.json");
+        swagger.setUrls("/rest/docs/internal", "/rest/docs/openapi.json", "/rest/docs/openapiDetailed.json");
     }
 
 }

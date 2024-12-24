@@ -9,6 +9,11 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 import java.util.Arrays;
 
+/**
+ * A Vaadin component that integrates the Swagger UI for API documentation visualization.
+ * The component allows configuring a single URL or a list of URLs for API documentation.
+ * This class is designed to be used in Vaadin Flow applications.
+ */
 @Tag("swagger-ui")
 @NpmPackage(value = "jquery", version = "1.9.1")
 @NpmPackage(value = "swagger-ui", version = "5.18.2")
