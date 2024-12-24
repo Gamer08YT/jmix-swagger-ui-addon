@@ -51,6 +51,7 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
      *
      * @return {Object} An object representing the defined properties, including details such as their type, default value, and any associated observer methods.
      */
+    // https://github.com/swagger-api/swagger-ui/blob/HEAD/docs/usage/configuration.md
     static get properties() {
         return {
             url: {
@@ -58,6 +59,30 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
                 notify: true,
                 value: '/rest/docs/internal',
                 observer: '_onUrlChange'
+            },
+            useUnsafeMarkdown: {
+                type: Boolean,
+                value: false,
+            },
+            syntaxHighlight: {
+                type: Boolean,
+                value: false,
+            },
+            deepLinking: {
+                type: Boolean,
+                value: false,
+            },
+            docExpansion: {
+                type: String,
+                value: "full",
+            },
+            tryItOutEnabled: {
+                type: Boolean,
+                value: true,
+            },
+            requestSnippetsEnabled: {
+                type: Boolean,
+                value: true,
             },
             urls: {
                 type: String,
@@ -98,6 +123,7 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
      */
     _onUrlsChange(valueIO) {
         console.log("Refreshing URLs of OpenAPI Documentation.");
+        console.log(valueIO);
     }
 
     /**
@@ -140,7 +166,12 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
             this._swagger = SwaggerUI({
                 url: this.url,
                 domNode: this._domElement,
-                docExpansion: "full"
+                docExpansion: this.docExpansion,
+                deepLinking: this.deepLinking,
+                tryItOutEnabled: this.tryItOutEnabled,
+                requestSnippetsEnabled: this.requestSnippetsEnabled,
+                syntaxHighlight: this.syntaxHighlight,
+                useUnsafeMarkdown: this.useUnsafeMarkdown
             });
             console.log('Swagger UI initialized');
         } catch (error) {
