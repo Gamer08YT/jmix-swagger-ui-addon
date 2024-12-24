@@ -21,7 +21,7 @@ public class ApiDocs extends StandardView {
      */
     @Subscribe
     public void onInit(final InitEvent event) {
-        swagger.setUrls("/rest/docs/internal", "/rest/docs/openapi.json", "/rest/docs/openapiDetailed.json");
+//        swagger.setUrls("/rest/docs/internal", "/rest/docs/openapi.json", "/rest/docs/openapiDetailed.json");
     }
 
 }
