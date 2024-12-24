@@ -24,8 +24,33 @@ To generate API Docs for entire Projekt you can use Springdoc to generate Specs 
    ```
 2. Add Spring Doc Dependency to your `build.gradle`.
    ```groovy
-   implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+   implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui'
    ```
+   
+## Implement basic Swagger UI
+
+Via Java Component:
+```java
+@Subscribe
+public void onInit(final InitEvent event) {
+    SwaggerUI swaggerIO = new SwaggerIO();
+
+    swaggerIO.setUrl("/rest/docs/openapi.json");
+
+    getContent().add(swaggerIO);
+}
+```
+Via View Descriptor XML:
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:app="http://byte-store.de/schema/app-ui-components"
+      title="msg://apiDocs.title">
+    <layout>
+        <app:swagger-ui url="/rest/docs/openapi.json" id="swagger"/>
+    </layout>
+</view>
+```
 
 ![img.png](img.png)
 
