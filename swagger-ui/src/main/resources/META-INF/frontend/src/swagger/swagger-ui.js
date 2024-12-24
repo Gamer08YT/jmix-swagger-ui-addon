@@ -162,9 +162,7 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
         console.log("Initializing Swagger UI for Component");
 
         try {
-            this._swagger = SwaggerUI({
-                url: this.url,
-                urls: this.urls,
+            let config = {
                 domNode: this._domElement,
                 docExpansion: this.docExpansion,
                 deepLinking: this.deepLinking,
@@ -172,7 +170,15 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
                 requestSnippetsEnabled: this.requestSnippetsEnabled,
                 syntaxHighlight: this.syntaxHighlight,
                 useUnsafeMarkdown: this.useUnsafeMarkdown
-            });
+            }
+
+            if (this.urls.length > 0)
+                config.urls = config.urls = this.urls;
+            else
+                config.url = this.url;
+
+            this._swagger = SwaggerUI(config);
+
             console.log('Swagger UI initialized');
         } catch (error) {
             console.error('Failed to initialize Swagger UI:', error);
