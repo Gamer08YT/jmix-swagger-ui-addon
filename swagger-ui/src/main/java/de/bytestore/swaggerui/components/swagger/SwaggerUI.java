@@ -6,6 +6,7 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.util.Arrays;
 
@@ -62,6 +63,8 @@ public class SwaggerUI extends Component implements HasSize {
      */
     public void setUrls(String... valueIO) {
         getElement().setPropertyList(VALUE_URLS, Arrays.stream(valueIO).toList());
+
+        throw new NotImplementedException("Currently not implemented, because of an issue with the Swagger UI Frontend.");
     }
 
     /**

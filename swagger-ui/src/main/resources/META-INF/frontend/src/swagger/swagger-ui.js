@@ -4,7 +4,7 @@ import {ThemableMixin} from '@vaadin/vaadin-themable-mixin/vaadin-themable-mixin
 import {defineCustomElement} from '@vaadin/component-base/src/define.js';
 import {css, html, LitElement} from 'lit';
 import {PolylitMixin} from '@vaadin/component-base/src/polylit-mixin.js';
-
+// import SwaggerUiStandalonePreset from "swagger-ui/swagger-ui-standalone-preset.js";
 import SwaggerUI from 'swagger-ui';
 
 //import "swagger-ui-react/swagger-ui.css"
@@ -169,12 +169,14 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
                 tryItOutEnabled: this.tryItOutEnabled,
                 requestSnippetsEnabled: this.requestSnippetsEnabled,
                 syntaxHighlight: this.syntaxHighlight,
-                useUnsafeMarkdown: this.useUnsafeMarkdown
+                useUnsafeMarkdown: this.useUnsafeMarkdown,
+                // plugins: [SwaggerUiStandalonePreset],
+                // layout: "StandaloneLayout",
             }
 
             if (this.urls.length > 0) {
                 config.urls = this.urls.map(url => ({
-                    url: url,
+                    url: "URL: " + url,
                     name: url
                 }));
 
@@ -182,7 +184,7 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
             } else {
                 // config.url = this.url;
                 config.urls = [{
-                    name: this.url,
+                    name: "URL: " + this.url,
                     url: this.url
                 }];
 
