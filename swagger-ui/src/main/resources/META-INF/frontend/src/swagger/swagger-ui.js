@@ -63,26 +63,32 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
             useUnsafeMarkdown: {
                 type: Boolean,
                 value: false,
+                observer: '_onGenericUpdate'
             },
             syntaxHighlight: {
                 type: Boolean,
                 value: false,
+                observer: '_onGenericUpdate'
             },
             deepLinking: {
                 type: Boolean,
                 value: false,
+                observer: '_onGenericUpdate'
             },
             docExpansion: {
                 type: String,
                 value: "full",
+                observer: '_onGenericUpdate'
             },
             tryItOutEnabled: {
                 type: Boolean,
                 value: true,
+                observer: '_onGenericUpdate'
             },
             requestSnippetsEnabled: {
                 type: Boolean,
                 value: true,
+                observer: '_onGenericUpdate'
             },
             urls: {
                 type: String,
@@ -111,6 +117,17 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
         console.log("Refreshing URL of OpenAPI Documentation.");
 
         //this.init();
+    }
+
+    /**
+     * Handles a generic update event by logging the updated OpenAPI Documentation URL and the provided input.
+     *
+     * @param {any} valueIO - The input value to be processed and logged.
+     * @return {void} This method does not return a value.
+     */
+    _onGenericUpdate(valueIO) {
+        console.log("Refreshing URL of OpenAPI Documentation.");
+        console.log(valueIO);
     }
 
     /**
