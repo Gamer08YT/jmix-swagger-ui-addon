@@ -117,6 +117,12 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
 
         console.log("Refreshing URL of OpenAPI Documentation.");
         console.log(valueIO);
+
+        // Clear Render Container.
+        $(this._domElement).empty();
+
+        // Recreate Swagger UI.
+        this.init();
     }
 
     /**
