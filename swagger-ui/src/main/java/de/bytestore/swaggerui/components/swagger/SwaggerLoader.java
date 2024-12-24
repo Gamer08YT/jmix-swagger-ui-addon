@@ -22,6 +22,12 @@ public class SwaggerLoader extends AbstractComponentLoader<SwaggerUI> {
     @Override
     public void loadComponent() {
         loadString(element, "url", resultComponent::setUrl);
+        loadBoolean(element, "requestSnippetsEnabled", resultComponent::setRequestSnippetsEnabled);
+        loadBoolean(element, "tryItOutEnabled", resultComponent::setTryItOutEnabled);
+        loadEnum(element, DocExpansion.class, "docExpansion", resultComponent::setDocExpansion);
+        loadBoolean(element, "deepLinking", resultComponent::setDeepLinking);
+        loadBoolean(element, "syntaxHighlight", resultComponent::setSyntaxHighlight);
+        loadBoolean(element, "useUnsafeMarkdown", resultComponent::setUseUnsafeMarkdown);
 
         componentLoader().loadSizeAttributes(resultComponent, element);
     }
