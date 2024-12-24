@@ -172,10 +172,15 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
                 useUnsafeMarkdown: this.useUnsafeMarkdown
             }
 
-            if (this.urls.length > 0)
-                config.urls = config.urls = this.urls;
-            else
-                config.url = this.url;
+            if (this.urls.length > 0) {
+                config.urls = this.urls;
+
+                console.log("Using Swagger URLs Mode.")
+            } else {
+                config.urls = [this.url];
+
+                console.log("Using Swagger URL Mode.")
+            }
 
             this._swagger = SwaggerUI(config);
 
