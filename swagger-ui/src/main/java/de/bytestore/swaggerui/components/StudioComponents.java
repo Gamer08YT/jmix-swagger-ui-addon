@@ -30,7 +30,7 @@ public interface StudioComponents {
                     @StudioProperty(xmlAttribute = "minWidth", type = StudioPropertyType.SIZE),
 
                     /* Specific attributes */
-                    @StudioProperty(xmlAttribute = "url", type = StudioPropertyType.STRING)
+                    @StudioProperty(xmlAttribute = "url", type = StudioPropertyType.STRING),
             }
 
     )

@@ -33,6 +33,25 @@ public class SwaggerUI extends Component implements HasSize {
     public void setUrl(String valueIO) {
         getElement().setProperty(VALUE_URL, valueIO);
     }
+
+    /**
+     * Sets multiple URLs for the SwaggerUi component by concatenating them into
+     * a single string separated by commas.
+     *
+     * @param valueIO a variable-length argument list of URLs to be concatenated
+     */
+    public void setUrls(String... valueIO) {
+        StringBuilder builderIO = new StringBuilder();
+
+        for (int i = 0; i < valueIO.length; i++) {
+            builderIO.append(valueIO[i]);
+            if (i < valueIO.length - 1) {
+                builderIO.append(", "); // Nur anhängen, wenn es nicht der letzte Wert ist
+            }
+        }
+
+        this.setUrl(builderIO.toString());
+    }
 }
 
 

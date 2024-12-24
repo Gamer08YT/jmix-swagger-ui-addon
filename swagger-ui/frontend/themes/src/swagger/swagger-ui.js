@@ -82,6 +82,10 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
         //this.init();
     }
 
+    _onUrlsChange(valueIO) {
+        console.log("Refreshing URLs of OpenAPI Documentation.");
+    }
+
     /**
      * Initializes the custom element once it is ready.
      * Calls the parent's ready method, assigns the element to a property,
@@ -97,11 +101,6 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
 
         // Get DOM Element.
         this._domElement = this.shadowRoot.getElementById('render-target');
-        // this._domElement = $(this);
-        // this._domElement.attr('id', 'render-target');
-
-        console.log(this);
-        console.log($(this))
 
         // Add SwaggerUi UI.
         this.init();
@@ -121,11 +120,10 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
      */
     // https://github.com/swagger-api/swagger-ui/blob/HEAD/docs/usage/installation.md#installation
     init() {
-        console.log("Initializing SwaggerUi UI for Component");
-        console.log(this._domElement)
+        console.log("Initializing Swagger UI for Component");
 
         try {
-            SwaggerUI({
+            this._swagger = SwaggerUI({
                 url: this.url,
                 domNode: this._domElement,
                 docExpansion: "full"
@@ -134,6 +132,8 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
         } catch (error) {
             console.error('Failed to initialize Swagger UI:', error);
         }
+
+        console.log(this._swagger);
     }
 
 
