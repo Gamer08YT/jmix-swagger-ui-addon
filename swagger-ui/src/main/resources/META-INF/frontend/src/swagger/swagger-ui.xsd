@@ -11,6 +11,10 @@
                     <!--                    <xs:attribute name="min" type="xs:integer"/>-->
                     <!--                    <xs:attribute name="max" type="xs:integer"/>-->
                     <xs:attribute name="url" type="xs:string"/>
+
+                    <!-- Need Type xs:array or something like that... (@JMIX Team wish) -->
+                    <!--<xs:attribute  name="urls"/>-->
+
                     <xs:attributeGroup ref="layout:hasSize"/>
                 </xs:extension>
             </xs:complexContent>

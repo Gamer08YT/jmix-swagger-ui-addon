@@ -5,7 +5,7 @@ import {defineCustomElement} from '@vaadin/component-base/src/define.js';
 import {css, html, LitElement} from 'lit';
 import {PolylitMixin} from '@vaadin/component-base/src/polylit-mixin.js';
 
-import SwaggerUI from 'frontend/src/swagger/swagger-ui';
+import SwaggerUI from 'swagger-ui';
 
 //import "swagger-ui-react/swagger-ui.css"
 

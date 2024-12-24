@@ -7,6 +7,8 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
 
+import java.util.Arrays;
+
 @Tag("swagger-ui")
 @NpmPackage(value = "jquery", version = "1.9.1")
 @NpmPackage(value = "swagger-ui", version = "5.18.2")
@@ -15,6 +17,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @CssImport(value = "./src/swagger/swagger-ui.css", include = "swagger-ui", themeFor = "swagger-ui")
 public class SwaggerUI extends Component implements HasSize {
     public static final String VALUE_URL = "url";
+
+    public static final String VALUE_URLS = "urls";
 
     /**
      * Retrieves the URL property of the SwaggerUi component.
@@ -35,22 +39,12 @@ public class SwaggerUI extends Component implements HasSize {
     }
 
     /**
-     * Sets multiple URLs for the SwaggerUi component by concatenating them into
-     * a single string separated by commas.
+     * Sets a list of URLs for the Swagger UI component.
      *
-     * @param valueIO a variable-length argument list of URLs to be concatenated
+     * @param valueIO an array of URLs to be set for the Swagger UI component
      */
     public void setUrls(String... valueIO) {
-        StringBuilder builderIO = new StringBuilder();
-
-        for (int i = 0; i < valueIO.length; i++) {
-            builderIO.append(valueIO[i]);
-            if (i < valueIO.length - 1) {
-                builderIO.append(", "); // Nur anhängen, wenn es nicht der letzte Wert ist
-            }
-        }
-
-        this.setUrl(builderIO.toString());
+        getElement().setPropertyList(VALUE_URLS, Arrays.stream(valueIO).toList());
     }
 }
 

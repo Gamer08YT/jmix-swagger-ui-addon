@@ -9,8 +9,8 @@ import io.jmix.flowui.kit.meta.StudioUiKit;
 public interface StudioComponents {
     // https://docs.jmix.io/jmix/flow-ui/vc/creating-components/integrating-into-jmix-ui.html
     @StudioComponent(
-            name = "SwaggerUi",
-            classFqn = "de.bytestore.hostinger.components.swagger.SwaggerUi",
+            name = "SwaggerUI",
+            classFqn = "de.bytestore.hostinger.components.swagger.SwaggerUI",
             category = "Components",
             xmlElement = "swagger-ui",
             xmlns = "http://byte-store.de/schema/app-ui-components",
