@@ -56,7 +56,6 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
         return {
             url: {
                 type: String,
-                notify: true,
                 value: '/rest/docs/internal',
                 observer: '_onGenericUpdate'
             },
@@ -92,7 +91,6 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
             },
             urls: {
                 type: String,
-                notify: true,
                 value: [],
                 observer: '_onGenericUpdate'
             },
@@ -113,6 +111,10 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
      * @return {void} This method does not return a value.
      */
     _onGenericUpdate(valueIO) {
+        if (this._swagger === undefined) {
+            return;
+        }
+
         console.log("Refreshing URL of OpenAPI Documentation.");
         console.log(valueIO);
     }
