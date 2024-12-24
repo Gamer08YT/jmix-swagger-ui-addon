@@ -5,16 +5,34 @@
            xmlns:layout="http://jmix.io/schema/flowui/layout">
 
     <xs:element name="swagger-ui">
+
         <xs:complexType>
             <xs:complexContent>
                 <xs:extension base="layout:baseComponent">
                     <!--                    <xs:attribute name="min" type="xs:integer"/>-->
                     <!--                    <xs:attribute name="max" type="xs:integer"/>-->
                     <xs:attribute name="url" type="xs:string"/>
+
+                    <!-- Need Type xs:array or something like that... (@JMIX Team wish) -->
+                    <!--<xs:attribute  name="urls"/>-->
+
+                    <xs:attribute name="requestSnippetsEnabled" type="xs:boolean"/>
+                    <xs:attribute name="tryItOutEnabled" type="xs:boolean"/>
+                    <xs:attribute name="docExpansion" type="docExpansion"/>
+                    <xs:attribute name="deepLinking" type="xs:boolean"/>
+                    <xs:attribute name="syntaxHighlight" type="xs:boolean"/>
+                    <xs:attribute name="useUnsafeMarkdown" type="xs:boolean"/>
                     <xs:attributeGroup ref="layout:hasSize"/>
                 </xs:extension>
             </xs:complexContent>
         </xs:complexType>
     </xs:element>
 
+    <xs:simpleType name="docExpansion">
+        <xs:restriction>
+            <xs:enumeration value="LIST"/>
+            <xs:enumeration value="NONE"/>
+            <xs:enumeration value="FULL"/>
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

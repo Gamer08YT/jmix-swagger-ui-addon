@@ -6,7 +6,15 @@ import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.dependency.NpmPackage;
+import org.apache.commons.lang3.NotImplementedException;
 
+import java.util.Arrays;
+
+/**
+ * A Vaadin component that integrates the Swagger UI for API documentation visualization.
+ * The component allows configuring a single URL or a list of URLs for API documentation.
+ * This class is designed to be used in Vaadin Flow applications.
+ */
 @Tag("swagger-ui")
 @NpmPackage(value = "jquery", version = "1.9.1")
 @NpmPackage(value = "swagger-ui", version = "5.18.2")
@@ -15,6 +23,20 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 @CssImport(value = "./src/swagger/swagger-ui.css", include = "swagger-ui", themeFor = "swagger-ui")
 public class SwaggerUI extends Component implements HasSize {
     public static final String VALUE_URL = "url";
+
+    public static final String VALUE_URLS = "urls";
+
+    public static final String REQUEST_SNIPPETS_ENABLED = "requestSnippetsEnabled";
+
+    public static final String TRY_IT_OUT_ENABLED = "tryItOutEnabled";
+
+    public static final String DOC_EXPANSION = "docExpansion";
+
+    public static final String DEEP_LINKING = "deepLinking";
+
+    public static final String SYNTAX_HIGHLIGHT = "syntaxHighlight";
+
+    public static final String USE_UNSAFE_MARKDOWN = "useUnsafeMarkdown";
 
     /**
      * Retrieves the URL property of the SwaggerUi component.
@@ -35,22 +57,69 @@ public class SwaggerUI extends Component implements HasSize {
     }
 
     /**
-     * Sets multiple URLs for the SwaggerUi component by concatenating them into
-     * a single string separated by commas.
+     * Sets a list of URLs for the Swagger UI component.
      *
-     * @param valueIO a variable-length argument list of URLs to be concatenated
+     * @param valueIO an array of URLs to be set for the Swagger UI component
      */
     public void setUrls(String... valueIO) {
-        StringBuilder builderIO = new StringBuilder();
+        getElement().setPropertyList(VALUE_URLS, Arrays.stream(valueIO).toList());
 
-        for (int i = 0; i < valueIO.length; i++) {
-            builderIO.append(valueIO[i]);
-            if (i < valueIO.length - 1) {
-                builderIO.append(", "); // Nur anhängen, wenn es nicht der letzte Wert ist
-            }
-        }
+        throw new NotImplementedException("Currently not implemented, because of an issue with the Swagger UI Frontend.");
+    }
 
-        this.setUrl(builderIO.toString());
+    /**
+     * Enables or disables the request snippets feature in the Swagger UI component.
+     *
+     * @param valueIO a boolean flag indicating whether request snippets should be enabled (true) or disabled (false)
+     */
+    public void setRequestSnippetsEnabled(boolean valueIO) {
+        getElement().setProperty(REQUEST_SNIPPETS_ENABLED, valueIO);
+    }
+
+    /**
+     * Enables or disables the "Try It Out" feature in the Swagger UI component.
+     *
+     * @param valueIO a boolean flag indicating whether the "Try It Out" feature should be enabled (true) or disabled (false)
+     */
+    public void setTryItOutEnabled(boolean valueIO) {
+        getElement().setProperty(TRY_IT_OUT_ENABLED, valueIO);
+    }
+
+    /**
+     * Sets the document expansion mode for the Swagger UI component.
+     *
+     * @param valueIO the DocExpansion enum value representing the desired document expansion mode
+     */
+    public void setDocExpansion(DocExpansion valueIO) {
+        getElement().setProperty(DOC_EXPANSION, valueIO.getId());
+    }
+
+    /**
+     * Enables or disables the deep linking feature in the Swagger UI component.
+     *
+     * @param valueIO a boolean flag indicating whether deep linking should be enabled (true) or disabled (false)
+     */
+    public void setDeepLinking(boolean valueIO) {
+        getElement().setProperty(DEEP_LINKING, valueIO);
+    }
+
+    /**
+     * Enables or disables syntax highlighting in the Swagger UI component.
+     *
+     * @param valueIO a boolean flag indicating whether syntax highlighting should be enabled (true) or disabled (false)
+     */
+    public void setSyntaxHighlight(boolean valueIO) {
+        getElement().setProperty(SYNTAX_HIGHLIGHT, valueIO);
+    }
+
+    /**
+     * Enables or disables the use of unsafe Markdown processing in the Swagger UI component.
+     *
+     * @param valueIO a boolean flag indicating whether unsafe Markdown processing should be
+     *                enabled (true) or disabled (false)
+     */
+    public void setUseUnsafeMarkdown(boolean valueIO) {
+        getElement().setProperty(USE_UNSAFE_MARKDOWN, valueIO);
     }
 }
 

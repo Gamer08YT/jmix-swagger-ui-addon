@@ -2,7 +2,8 @@
 <menu-config xmlns="http://jmix.io/schema/flowui/menu">
 
     <menu id="swagger" title="msg://de.bytestore.swaggerui/menu.addon">
-        <item view="swagger_ApiDocs" title="msg://de.bytestore.swaggerui.view.apidocs/apiDocs.title"/>
+        <item view="swagger_ApiDocs" id="api-docs" title="msg://de.bytestore.swaggerui.view.apidocs/apiDocs.title"
+              icon="vaadin:code"/>
     </menu>
 
 </menu-config>

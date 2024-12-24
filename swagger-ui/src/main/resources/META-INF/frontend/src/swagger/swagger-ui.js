@@ -4,8 +4,8 @@ import {ThemableMixin} from '@vaadin/vaadin-themable-mixin/vaadin-themable-mixin
 import {defineCustomElement} from '@vaadin/component-base/src/define.js';
 import {css, html, LitElement} from 'lit';
 import {PolylitMixin} from '@vaadin/component-base/src/polylit-mixin.js';
-
-import SwaggerUI from 'frontend/src/swagger/swagger-ui';
+// import SwaggerUiStandalonePreset from "swagger-ui/swagger-ui-standalone-preset.js";
+import SwaggerUI from 'swagger-ui';
 
 //import "swagger-ui-react/swagger-ui.css"
 
@@ -51,13 +51,48 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
      *
      * @return {Object} An object representing the defined properties, including details such as their type, default value, and any associated observer methods.
      */
+    // https://github.com/swagger-api/swagger-ui/blob/HEAD/docs/usage/configuration.md
     static get properties() {
         return {
             url: {
                 type: String,
-                notify: true,
                 value: '/rest/docs/internal',
-                observer: '_onUrlChange'
+                observer: '_onGenericUpdate'
+            },
+            useUnsafeMarkdown: {
+                type: Boolean,
+                value: false,
+                observer: '_onGenericUpdate'
+            },
+            syntaxHighlight: {
+                type: Boolean,
+                value: false,
+                observer: '_onGenericUpdate'
+            },
+            deepLinking: {
+                type: Boolean,
+                value: false,
+                observer: '_onGenericUpdate'
+            },
+            docExpansion: {
+                type: String,
+                value: "full",
+                observer: '_onGenericUpdate'
+            },
+            tryItOutEnabled: {
+                type: Boolean,
+                value: false,
+                observer: '_onGenericUpdate'
+            },
+            requestSnippetsEnabled: {
+                type: Boolean,
+                value: false,
+                observer: '_onGenericUpdate'
+            },
+            urls: {
+                type: String,
+                value: [],
+                observer: '_onGenericUpdate'
             },
             /** @private */
             _domElement: {
@@ -70,20 +105,24 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
     }
 
     /**
-     * Handles the event triggered when the URL changes. Updates or refreshes
-     * the OpenAPI documentation view based on the new URL provided.
+     * Handles a generic update event by logging the updated OpenAPI Documentation URL and the provided input.
      *
-     * @param {string} valueIO - The new URL or identifier input to update the OpenAPI Documentation.
-     * @return {void} This method does not return any value.
+     * @param {any} valueIO - The input value to be processed and logged.
+     * @return {void} This method does not return a value.
      */
-    _onUrlChange(valueIO) {
+    _onGenericUpdate(valueIO) {
+        if (this._swagger === undefined) {
+            return;
+        }
+
         console.log("Refreshing URL of OpenAPI Documentation.");
+        console.log(valueIO);
 
-        //this.init();
-    }
+        // Clear Render Container.
+        $(this._domElement).empty();
 
-    _onUrlsChange(valueIO) {
-        console.log("Refreshing URLs of OpenAPI Documentation.");
+        // Recreate Swagger UI.
+        this.init();
     }
 
     /**
@@ -123,11 +162,39 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
         console.log("Initializing Swagger UI for Component");
 
         try {
-            this._swagger = SwaggerUI({
-                url: this.url,
+            let config = {
                 domNode: this._domElement,
-                docExpansion: "full"
-            });
+                docExpansion: this.docExpansion,
+                deepLinking: this.deepLinking,
+                tryItOutEnabled: this.tryItOutEnabled,
+                requestSnippetsEnabled: this.requestSnippetsEnabled,
+                syntaxHighlight: this.syntaxHighlight,
+                useUnsafeMarkdown: this.useUnsafeMarkdown,
+                // plugins: [SwaggerUiStandalonePreset],
+                // layout: "StandaloneLayout",
+            }
+
+            if (this.urls.length > 0) {
+                config.urls = this.urls.map(url => ({
+                    url: "URL: " + url,
+                    name: url
+                }));
+
+                console.log("Using Swagger URLs Mode.")
+            } else {
+                // config.url = this.url;
+                config.urls = [{
+                    name: "URL: " + this.url,
+                    url: this.url
+                }];
+
+                console.log("Using Swagger URL Mode.")
+            }
+
+            console.log(config);
+
+            this._swagger = SwaggerUI(config);
+
             console.log('Swagger UI initialized');
         } catch (error) {
             console.error('Failed to initialize Swagger UI:', error);
