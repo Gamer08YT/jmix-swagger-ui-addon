@@ -174,14 +174,14 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
                 // layout: "StandaloneLayout",
             }
 
-            if (this.urls.length > 0) {
-                config.urls = this.urls.map(url => ({
-                    url: "URL: " + url,
-                    name: url
-                }));
-
-                console.log("Using Swagger URLs Mode.")
-            } else {
+            // if (this.urls.length > 0) {
+            //     config.urls = this.urls.map(url => ({
+            //         url: "URL: " + url,
+            //         name: url
+            //     }));
+            //
+            //     console.log("Using Swagger URLs Mode.")
+            // } else {
                 // config.url = this.url;
                 config.urls = [{
                     name: "URL: " + this.url,
@@ -189,7 +189,7 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
                 }];
 
                 console.log("Using Swagger URL Mode.")
-            }
+            // }
 
             console.log(config);
 
