@@ -56,6 +56,10 @@ Via View Descriptor XML:
 </view>
 ```
 
+## Known limitations
+
+- setUrls currently not working properly
+
 ## Screenshots
 
 ![img.png](img.png)
