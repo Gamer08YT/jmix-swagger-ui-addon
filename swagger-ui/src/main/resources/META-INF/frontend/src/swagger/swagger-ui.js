@@ -1,4 +1,3 @@
-import 'jquery/jquery.js'
 import {ElementMixin} from '@vaadin/component-base/src/element-mixin.js';
 import {ThemableMixin} from '@vaadin/vaadin-themable-mixin/vaadin-themable-mixin.js';
 import {defineCustomElement} from '@vaadin/component-base/src/define.js';
@@ -119,7 +118,7 @@ class Swagger extends ElementMixin(ThemableMixin(PolylitMixin(LitElement))) {
         console.log(valueIO);
 
         // Clear Render Container.
-        $(this._domElement).empty();
+        this._domElement.innerHTML = '';
 
         // Recreate Swagger UI.
         this.init();

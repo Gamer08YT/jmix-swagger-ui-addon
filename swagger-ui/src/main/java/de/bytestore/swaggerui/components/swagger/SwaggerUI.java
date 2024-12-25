@@ -16,7 +16,6 @@ import java.util.Arrays;
  * This class is designed to be used in Vaadin Flow applications.
  */
 @Tag("swagger-ui")
-@NpmPackage(value = "jquery", version = "1.9.1")
 @NpmPackage(value = "swagger-ui", version = "5.18.2")
 @JsModule(value = "./src/swagger/swagger-ui.js")
 @CssImport(value = "swagger-ui/dist/swagger-ui.css", include = "swagger-ui", themeFor = "swagger-ui")

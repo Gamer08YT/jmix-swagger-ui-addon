@@ -59,6 +59,7 @@ Via View Descriptor XML:
 ## Known limitations
 
 - setUrls currently not working properly
+- No Dark-mode/Theme Switcher Support currently
 
 ## Screenshots
 
