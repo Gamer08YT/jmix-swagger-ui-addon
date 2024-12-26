@@ -1,3 +1,4 @@
+[![Publish release](https://github.com/Gamer08YT/jmix-swagger-ui-addon/actions/workflows/release.yml/badge.svg)](https://github.com/Gamer08YT/jmix-swagger-ui-addon/actions/workflows/release.yml) [![CI pipeline](https://github.com/Gamer08YT/jmix-swagger-ui-addon/actions/workflows/test.yml/badge.svg)](https://github.com/Gamer08YT/jmix-swagger-ui-addon/actions/workflows/test.yml)
 # JMIX Swagger-UI Component
 
 The Swagger UI add-on allows internal documentation to be displayed with the user-friendly Swagger environment.
