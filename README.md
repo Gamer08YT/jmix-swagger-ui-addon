@@ -11,8 +11,6 @@ your application in alternate ways, either through XML configuration or as a Jav
 
 ## Installation
 
-___
-
 The following table lists the add-on versions compatible with different Jmix platform versions:
 
 | Jmix Version | Add-on Version | Dependency (Gradle Implementation)    |
@@ -49,8 +47,6 @@ specification file:
     ```
 
 ## How to Use the Add-On
-
-___
 
 ### Via View Descriptor XML
 
@@ -92,8 +88,6 @@ public void onInit(final InitEvent event) {
 ```
 
 ## Provided View
-
-___
 
 The add-on comes with a built-in API Docs page, available by default at `/api-docs`. It serves the Swagger UI and points
 to the **REST API documentation** endpoint located at `/rest/docs/openapiDetailed.yaml`.
@@ -139,8 +133,6 @@ public class TestApiDocs extends ApiDocs {
 ```
 
 ## Limitations
-
-___
 
 - The `setUrls` method is currently non-functional.
 - Dark Mode or Theme Switching is not yet supported by the component.
