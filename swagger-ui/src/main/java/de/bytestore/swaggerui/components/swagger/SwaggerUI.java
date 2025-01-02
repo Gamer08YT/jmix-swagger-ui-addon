@@ -19,7 +19,7 @@ import java.util.Arrays;
 @NpmPackage(value = "swagger-ui", version = "5.18.2")
 @JsModule(value = "./src/swagger/swagger-ui.js")
 @CssImport(value = "swagger-ui/dist/swagger-ui.css", include = "swagger-ui", themeFor = "swagger-ui")
-@CssImport(value = "./src/swagger/swagger-ui.css", include = "swagger-ui", themeFor = "swagger-ui")
+// @CssImport(value = "./src/swagger/swagger-ui.css", include = "swagger-ui", themeFor = "swagger-ui")
 public class SwaggerUI extends Component implements HasSize {
     public static final String VALUE_URL = "url";
 
