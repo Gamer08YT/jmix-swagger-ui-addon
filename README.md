@@ -16,6 +16,7 @@ The following table lists the add-on versions compatible with different Jmix pla
 | Jmix Version | Add-on Version | Dependency (Gradle Implementation)    |
 |--------------|----------------|---------------------------------------|
 | 2.4.2        | 1.1.6          | de.bytestore:swagger-ui-starter:1.1.6 |
+| 2.5.0-RC1    | 1.2.0          | de.bytestore:swagger-ui-starter:1.2.0 |
 
 **To use the add-on, you need to install either the Jmix REST Add-on or the Springdoc dependency; otherwise, no OpenAPI
 Specification file will be generated.**
