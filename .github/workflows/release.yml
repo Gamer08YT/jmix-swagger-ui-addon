@@ -10,8 +10,10 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '17'
+      # 3️⃣ Downgrade Gradle wrapper to 7.6.4
       - name: Downgrade Gradle wrapper
         run: |
+          chmod +x ./gradlew
           sed -i 's/gradle-[0-9.]*-bin.zip/gradle-7.6.4-bin.zip/' gradle/wrapper/gradle-wrapper.properties
           ./gradlew wrapper --gradle-version 7.6.4
       - name: Publish package
