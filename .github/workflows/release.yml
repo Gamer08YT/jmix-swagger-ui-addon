@@ -10,8 +10,10 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: '17'
+      - name: Downgrade Gradle
+        run: gradle wrapper --gradle-version 7.6.4
       - name: Publish package
-        run: gradle --gradle-version 7.6.4 -Pversion=${{ github.event.release.tag_name }} build publish
+        run: gradle -Pversion=${{ github.event.release.tag_name }} build publish
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_USERNAME: Gamer08YT
