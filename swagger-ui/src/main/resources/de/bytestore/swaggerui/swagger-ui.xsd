@@ -18,7 +18,7 @@
 
                     <xs:attribute name="requestSnippetsEnabled" type="xs:boolean"/>
                     <xs:attribute name="tryItOutEnabled" type="xs:boolean"/>
-                    <xs:attribute name="docExpansion" type="docExpansion"/>
+                    <xs:attribute name="docExpansion" type="docExpstatisticscardansion"/>
                     <xs:attribute name="deepLinking" type="xs:boolean"/>
                     <xs:attribute name="syntaxHighlight" type="xs:boolean"/>
                     <xs:attribute name="useUnsafeMarkdown" type="xs:boolean"/>
