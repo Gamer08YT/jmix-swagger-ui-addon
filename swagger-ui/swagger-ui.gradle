@@ -1,4 +1,6 @@
-archivesBaseName = 'swagger-ui'
+base {
+    archivesName = 'swagger-ui'
+}
 
 dependencies {
     implementation 'io.jmix.core:jmix-core-starter'

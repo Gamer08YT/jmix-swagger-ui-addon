@@ -1,4 +1,6 @@
-archivesBaseName = 'swagger-ui-starter'
+base {
+    archivesName = 'swagger-ui-starter'
+}
 
 jmix {
     entitiesEnhancing {
